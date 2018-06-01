@@ -1,0 +1,10 @@
+C:\Users\sekib\Documents\UnderCreation\NicoTube\NicoTube\NicoTube\bin\Debug\NicoTube.exe.config
+C:\Users\sekib\Documents\UnderCreation\NicoTube\NicoTube\NicoTube\bin\Debug\NicoTube.exe
+C:\Users\sekib\Documents\UnderCreation\NicoTube\NicoTube\NicoTube\bin\Debug\NicoTube.pdb
+C:\Users\sekib\Documents\UnderCreation\NicoTube\NicoTube\NicoTube\obj\Debug\NicoTube.csprojResolveAssemblyReference.cache
+C:\Users\sekib\Documents\UnderCreation\NicoTube\NicoTube\NicoTube\obj\Debug\NicoTube.Form1.resources
+C:\Users\sekib\Documents\UnderCreation\NicoTube\NicoTube\NicoTube\obj\Debug\NicoTube.Properties.Resources.resources
+C:\Users\sekib\Documents\UnderCreation\NicoTube\NicoTube\NicoTube\obj\Debug\NicoTube.csproj.GenerateResource.cache
+C:\Users\sekib\Documents\UnderCreation\NicoTube\NicoTube\NicoTube\obj\Debug\NicoTube.csproj.CoreCompileInputs.cache
+C:\Users\sekib\Documents\UnderCreation\NicoTube\NicoTube\NicoTube\obj\Debug\NicoTube.exe
+C:\Users\sekib\Documents\UnderCreation\NicoTube\NicoTube\NicoTube\obj\Debug\NicoTube.pdb
