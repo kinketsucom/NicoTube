@@ -90,8 +90,9 @@
             // アカウント設定ToolStripMenuItem
             // 
             this.アカウント設定ToolStripMenuItem.Name = "アカウント設定ToolStripMenuItem";
-            this.アカウント設定ToolStripMenuItem.Size = new System.Drawing.Size(169, 26);
+            this.アカウント設定ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.アカウント設定ToolStripMenuItem.Text = "アカウント設定";
+            this.アカウント設定ToolStripMenuItem.Click += new System.EventHandler(this.アカウント設定ToolStripMenuItem_Click);
             // 
             // Form1
             // 
