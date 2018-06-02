@@ -19,10 +19,10 @@ namespace NicoTube.API
         /// </summary>
         /// <param name="id">動画ID</param>
         /// <returns>クッキーを使用するCustomWebClientk</returns>
-        public static CustomWebClient GetWebClientForFlv(string id)
+        public static CustomWebClient GetWebClientForFlv(string id, CookieContainer cc)
         {
             var client = new CustomWebClient();
-            client.CookieContainer.Add(GetWatchCookie(id));
+            client.CookieContainer.Add(GetWatchCookie(id,cc));
 
             return client;
         }
@@ -32,10 +32,10 @@ namespace NicoTube.API
         /// </summary>
         /// <param name="id">動画ID</param>
         /// <returns>動画視聴ページのクッキー</returns>
-        private static CookieCollection GetWatchCookie(string id)
+        private static CookieCollection GetWatchCookie(string id, CookieContainer cc)
         {
             var req = (HttpWebRequest)HttpWebRequest.Create(String.Format("http://www.nicovideo.jp/watch/{0}", id));
-            req.CookieContainer = LoginCookie;
+            req.CookieContainer = cc;
 
             HttpWebResponse resp;
             try

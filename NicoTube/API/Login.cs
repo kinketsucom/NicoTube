@@ -14,8 +14,10 @@ namespace NicoTube.API
         /// ログイン時のセッションID
         public static CookieContainer LoginCookie = new CookieContainer();
 
-        public static void LoginToNicovideo(string mail, string passwd)
+
+        public static CookieContainer LoginToNicovideo(string mail, string passwd)
         {
+
             var req = (HttpWebRequest)HttpWebRequest.Create("https://secure.nicovideo.jp/secure/login?site=niconico");
             req.Method = "POST";
 
@@ -46,9 +48,19 @@ namespace NicoTube.API
             {
                 throw new Exception("Wrong ID or Password. Login Failed.");
             }
-            Console.WriteLine(result);
-        }
 
+
+            Console.WriteLine("ログイン中");
+            // クッキー確認
+            foreach (Cookie c in LoginCookie.GetCookies(new Uri("https://secure.nicovideo.jp/")))
+            {
+                Console.WriteLine("クッキー名:" + c.Name.ToString());
+                Console.WriteLine("値:" + c.Value.ToString());
+                Console.WriteLine("ドメイン名:" + c.Domain.ToString());
+            }
+
+            return LoginCookie;
+        }
 
     }
 }

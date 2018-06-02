@@ -42,21 +42,22 @@ namespace NicoTube.API
         /// </summary>
         /// <param name="id">動画ID</param>
         /// <returns></returns>
-        public static FlvInfo Create(string id)
+        public static FlvInfo Create(string id, CookieContainer cc)
         {
-            var req = (HttpWebRequest)HttpWebRequest.Create(String.Format("http://ext.nicovideo.jp/api/getflv/{0}?as3=1", id));
-            req.CookieContainer = NicoVideo.LoginCookie;
+            var req = (HttpWebRequest)HttpWebRequest.Create(String.Format("http://flapi.nicovideo.jp/api/getflv/{0}", id));
+            req.CookieContainer = cc;
+
             StreamReader sr;
             try
             {
-                var resp = req.GetResponse();
+                WebResponse resp = req.GetResponse();
                 sr = new StreamReader(resp.GetResponseStream());
             }
             catch (Exception ex)
             {
                 throw new Exception("Error while retrieving FlvInfo.", ex);
             }
-
+            
             var dict = sr
                 .ReadToEnd()
                 .Split('&')
@@ -72,8 +73,8 @@ namespace NicoTube.API
             try
             {
                 info.Id = id;
-                info.FlvUrl = dict["url"];
-                info.AbuseLink = dict["link"];
+                info.FlvUrl = dict["url"].Replace("%25","%");
+                //info.AbuseLink = dict["link"];
                 info.ThreadId = dict["thread_id"];
                 info.MessageServer = dict["ms"];
             }
@@ -91,7 +92,7 @@ namespace NicoTube.API
         /// </summary>
         /// <param name="num">取得するコメントの数</param>
         /// <returns>コメント文字列の配列</returns>
-        public string[] GetComments(int num)
+        public string[] GetComments(int num, CookieContainer cc)
         {
             var req = (HttpWebRequest)HttpWebRequest.Create(MessageServer);
             req.Method = "POST";
@@ -99,7 +100,7 @@ namespace NicoTube.API
             var s = string.Format(@"<thread res_from=""-{0}"" version=""20061206"" thread=""{1}"" />", num, ThreadId);
             var bs = Encoding.UTF8.GetBytes(s);
             req.ContentLength = bs.Length;
-            req.CookieContainer = NicoVideo.LoginCookie;
+            req.CookieContainer = cc;
             req.GetRequestStream().Write(bs, 0, bs.Length);
 
             XDocument doc;
