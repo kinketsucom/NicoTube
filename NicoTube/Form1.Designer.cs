@@ -90,7 +90,7 @@
             // アカウント設定ToolStripMenuItem
             // 
             this.アカウント設定ToolStripMenuItem.Name = "アカウント設定ToolStripMenuItem";
-            this.アカウント設定ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.アカウント設定ToolStripMenuItem.Size = new System.Drawing.Size(169, 26);
             this.アカウント設定ToolStripMenuItem.Text = "アカウント設定";
             this.アカウント設定ToolStripMenuItem.Click += new System.EventHandler(this.アカウント設定ToolStripMenuItem_Click);
             // 
@@ -106,6 +106,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

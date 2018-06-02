@@ -62,9 +62,13 @@ namespace NicoTube
 
         private void アカウント設定ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form setting_form = new NicoTube.Menu.Setting();
+            Form setting_form = new NicoTube.Menu.Settings();
             setting_form.Show();
+        }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            new NicoTube.Menu.SettingsDBHelper().onCreate();
         }
     }
 }
