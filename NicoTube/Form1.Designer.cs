@@ -36,32 +36,36 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.アカウント設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(470, 63);
+            this.button1.BackgroundImage = global::NicoTube.Properties.Resources.download_button;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Location = new System.Drawing.Point(480, 36);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(140, 110);
             this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtVidId
             // 
-            this.txtVidId.Location = new System.Drawing.Point(12, 63);
+            this.txtVidId.Location = new System.Drawing.Point(3, 28);
             this.txtVidId.Name = "txtVidId";
-            this.txtVidId.Size = new System.Drawing.Size(389, 22);
+            this.txtVidId.Size = new System.Drawing.Size(433, 22);
             this.txtVidId.TabIndex = 1;
             // 
             // progressDownload
             // 
-            this.progressDownload.Location = new System.Drawing.Point(0, 424);
+            this.progressDownload.Location = new System.Drawing.Point(0, 169);
             this.progressDownload.Name = "progressDownload";
-            this.progressDownload.Size = new System.Drawing.Size(776, 23);
+            this.progressDownload.Size = new System.Drawing.Size(632, 23);
             this.progressDownload.TabIndex = 2;
             // 
             // errorProvider1
@@ -75,7 +79,7 @@
             this.設定ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(632, 33);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -83,8 +87,9 @@
             // 
             this.設定ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.アカウント設定ToolStripMenuItem});
+            this.設定ToolStripMenuItem.Font = new System.Drawing.Font("メイリオ", 10F);
             this.設定ToolStripMenuItem.Name = "設定ToolStripMenuItem";
-            this.設定ToolStripMenuItem.Size = new System.Drawing.Size(51, 24);
+            this.設定ToolStripMenuItem.Size = new System.Drawing.Size(58, 29);
             this.設定ToolStripMenuItem.Text = "設定";
             // 
             // アカウント設定ToolStripMenuItem
@@ -94,22 +99,43 @@
             this.アカウント設定ToolStripMenuItem.Text = "アカウント設定";
             this.アカウント設定ToolStripMenuItem.Click += new System.EventHandler(this.アカウント設定ToolStripMenuItem_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("メイリオ", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(238, 25);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "動画ID(例:sm1234567890)";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.label1);
+            this.flowLayoutPanel1.Controls.Add(this.txtVidId);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(22, 36);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(452, 110);
+            this.flowLayoutPanel1.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(632, 188);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.progressDownload);
-            this.Controls.Add(this.txtVidId);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "メイン画面";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -124,6 +150,8 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 設定ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem アカウント設定ToolStripMenuItem;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label label1;
     }
 }
 

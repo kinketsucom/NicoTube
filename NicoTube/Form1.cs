@@ -70,5 +70,10 @@ namespace NicoTube
         {
             new NicoTube.Menu.SettingsDBHelper().onCreate();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
