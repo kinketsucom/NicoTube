@@ -77,7 +77,7 @@
             this.panel1.Controls.Add(this.pass_textBox);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(566, 174);
+            this.panel1.Size = new System.Drawing.Size(566, 125);
             this.panel1.TabIndex = 4;
             // 
             // label3
@@ -114,7 +114,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label4.Location = new System.Drawing.Point(294, 203);
+            this.label4.Location = new System.Drawing.Point(307, 140);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(284, 25);
@@ -125,7 +125,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(604, 237);
+            this.ClientSize = new System.Drawing.Size(604, 170);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel1);
             this.Name = "Settings";

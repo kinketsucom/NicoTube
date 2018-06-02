@@ -50,14 +50,14 @@ namespace NicoTube.API
             }
 
 
-            Console.WriteLine("ログイン中");
-            // クッキー確認
-            foreach (Cookie c in LoginCookie.GetCookies(new Uri("https://secure.nicovideo.jp/")))
-            {
-                Console.WriteLine("クッキー名:" + c.Name.ToString());
-                Console.WriteLine("値:" + c.Value.ToString());
-                Console.WriteLine("ドメイン名:" + c.Domain.ToString());
-            }
+            //Console.WriteLine("ログイン中");
+            //// クッキー確認
+            //foreach (Cookie c in LoginCookie.GetCookies(new Uri("https://secure.nicovideo.jp/")))
+            //{
+            //    Console.WriteLine("クッキー名:" + c.Name.ToString());
+            //    Console.WriteLine("値:" + c.Value.ToString());
+            //    Console.WriteLine("ドメイン名:" + c.Domain.ToString());
+            //}
 
             return LoginCookie;
         }

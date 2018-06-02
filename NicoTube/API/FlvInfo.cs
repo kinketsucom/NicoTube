@@ -6,6 +6,7 @@ using System.Text;
 using System.Xml.Linq;
 using System.Web;
 using NicoTube.API;
+using System.Windows.Forms;
 
 namespace NicoTube.API
 {
@@ -66,6 +67,8 @@ namespace NicoTube.API
 
             if ((dict.ContainsKey("closed") && dict["closed"] == "1") || !dict.ContainsKey("url"))
             {
+                MessageBox.Show("ログインデータの読み込みに失敗しました.プログラムを終了します.\nインターネット環境を確認してください", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 throw new Exception("Currently logged out.");
             }
 
@@ -73,13 +76,14 @@ namespace NicoTube.API
             try
             {
                 info.Id = id;
-                info.FlvUrl = dict["url"].Replace("%25","%");
+                info.FlvUrl = dict["url"].Replace("%25", "%");
                 //info.AbuseLink = dict["link"];
                 info.ThreadId = dict["thread_id"];
-                info.MessageServer = dict["ms"];
+                info.MessageServer = dict["ms"].Replace("%25", "%");
             }
             catch (Exception ex)
             {
+
                 throw new Exception("Retrieved FlvInfo is corrupted.", ex);
             }
 

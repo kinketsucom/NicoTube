@@ -10,17 +10,20 @@ using System.Net;
 using System.Windows.Forms;
 using NicoTube.API;
 using System.Web;
-
+using NicoTube.Menu;
 namespace NicoTube
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         private CookieContainer cc = new CookieContainer();
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
-            cc = Login.LoginToNicovideo("mail", "pass");
+            SettingsDBHelper sdb = new SettingsDBHelper();
+            string mail = sdb.getSettingValue("mail");
+            string pass = sdb.getSettingValue("pass");
+            cc = Login.LoginToNicovideo(mail, pass);
 
         }
 
@@ -43,11 +46,17 @@ namespace NicoTube
             client.DownloadFileCompleted += client_DownloadFileCompleted;
 
             var info = FlvInfo.Create(txtVidId.Text,cc);
-
             string url = info.FlvUrl;
             string deurl = HttpUtility.UrlDecode(url);
+            string murl = info.MessageServer;
+            string demurl = HttpUtility.UrlDecode(murl);
             var uri = new Uri(deurl);
-            client.DownloadFileAsync(uri, txtVidId.Text + ".flv");
+            string thread = info.ThreadId;
+            //ダウンロード実行
+            //client.DownloadFileAsync(uri, txtVidId.Text + ".flv");
+            string comment_xml = NicoVideo.GetComment(demurl,thread,cc);
+            Console.WriteLine(comment_xml);
+
         }
 
         private void client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)

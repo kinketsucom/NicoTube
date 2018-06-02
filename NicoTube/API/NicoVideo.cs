@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net;
+using System.Web;
+using System.IO;
 
 namespace NicoTube.API
 {
@@ -48,6 +50,33 @@ namespace NicoTube.API
             }
 
             return resp.Cookies;
+        }
+
+        public static string GetComment(string url, string thread,CookieContainer cc)
+        {
+
+            url += "thread?version=20090904" +
+                "&thread=" + thread +
+                "&res_from=-1000";
+
+            url = HttpUtility.UrlDecode(url);
+
+            var req = (HttpWebRequest)HttpWebRequest.Create(String.Format(url));
+            req.CookieContainer = cc;
+            StreamReader sr;
+
+            try
+            {
+                WebResponse resp = req.GetResponse();
+                sr = new StreamReader(resp.GetResponseStream());
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error while retrieving FlvInfo.", ex);
+            }
+            Console.WriteLine("コメント："+url);
+            string result_comment = sr.ReadToEnd();
+            return result_comment;
         }
     }
 }
