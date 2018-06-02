@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using NicoTube.API;
 using System.Web;
 using NicoTube.Menu;
+using System.IO;
 namespace NicoTube
 {
     public partial class MainForm : Form
@@ -53,9 +54,18 @@ namespace NicoTube
             var uri = new Uri(deurl);
             string thread = info.ThreadId;
             //ダウンロード実行
-            //client.DownloadFileAsync(uri, txtVidId.Text + ".flv");
-            string comment_xml = NicoVideo.GetComment(demurl,thread,cc);
-            Console.WriteLine(comment_xml);
+            string path = "./TmpDL";
+            if (!Directory.Exists(path)) Directory.CreateDirectory(path);
+            if (File.Exists("./TmpDL/" + txtVidId.Text + ".flv")){
+                MessageBox.Show("同名のファイルが存在しています。");
+            }
+            else
+            {
+                client.DownloadFileAsync(uri, "./TmpDL/" + txtVidId.Text + ".flv");
+            }
+            
+            //string comment_xml = NicoVideo.GetComment(demurl,thread,cc);
+            //Console.WriteLine(comment_xml);
 
         }
 
