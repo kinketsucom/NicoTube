@@ -59,5 +59,10 @@ namespace NicoTube
         {
             progressDownload.Value = e.ProgressPercentage;
         }
+
+        private void アカウント設定ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
